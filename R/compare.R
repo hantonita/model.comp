@@ -12,9 +12,8 @@
 #' @export
 #'
 #' @examples
-#' librart(gapminder)
-#' compare(data = gapminder, eqn = "lifeExp ~ gdpPercap", models = c('logreg')
-compare <- function(data, eqn, models = c('logreg'), outputs = c('fitted_model', 'fitted_values')) {
+#' compare_models(data = gapminder::gapminder, eqn = "lifeExp ~ gdpPercap", models = c('logreg'))
+compare_models <- function(data, eqn, models = c('logreg'), outputs = c('fitted_model', 'fitted_values')) {
   fitted <- data.frame(matrix(ncol = length(outputs), nrow = length(models)), row.names = models)
   colnames(fitted) <- c(outputs)
   print('fitted: ')
@@ -22,19 +21,19 @@ compare <- function(data, eqn, models = c('logreg'), outputs = c('fitted_model',
 
   for (model in models) {
     if (model == 'logreg') {
-      fitted_model <- glm(formula = eqn, data = data)
+      fitted_model <- stats::glm(formula = eqn, data = data)
       print('fitted model: ')
       print(fitted_model)
-      fitted_values <- fitted(fitted_model)
+      fitted_values <- stats::fitted(fitted_model)
       print('fitted values: ')
       print(fitted_values)
     } else if (model == 'cart') {
       fitted_model <- rpart::rpart(formula = eqn, data = data, method = 'anova')
-      fitted_values <- rpart::predict.rpart(fitted_model)
+      fitted_values <- stats::predict(fitted_model)
     } else if (model == 'prune') {
       fitted_model <- rpart::rpart(formula = eqn, data = data, method = 'anova')
       fitted_model <- rpart::prune(fitted_model, cp = fitted_model$cptable[which.min(fitted_model$cptable[,"xerror"]),"CP"])
-      fitted_values <- rpart::predict.rpart(fitted_model)
+      fitted_values <- stats::predict(fitted_model)
     }
 
     fitted[model, 'fitted_model'] <- list(fitted_model)
