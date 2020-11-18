@@ -1,5 +1,5 @@
 ---
-title: "Getting started: model.comp "
+title: "Getting started: model.comp"
 author: "Hanna Frank"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
