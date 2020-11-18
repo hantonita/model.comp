@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/distplyr)](https://CRAN.R-project.org/package=model.comp)
 <!-- badges: end -->
 
 The goal of model.comp is to compare the performance of some fitted
