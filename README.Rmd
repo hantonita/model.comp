@@ -21,15 +21,11 @@ knitr::opts_chunk$set(
 The goal of model.comp is to compare the performance of some fitted models on the given data.
 (Note: currently, only supports returning the fitted values, and only supports a logistic regression model. This will be expanded on in the future.)
 
+The package website can be found here: https://hantonita.github.io/model.comp/
+
 ## Installation
 
-You can install the released version of model.comp from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("model.comp")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+This package is not on CRAN yet so the best way to install it is using the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
