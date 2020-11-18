@@ -44,6 +44,14 @@ library(model.comp)
 (compare_models(data = gapminder::gapminder, eqn = "lifeExp ~ gdpPercap", models = c('logreg')))
 ```
 
+
+## Code of Conduct
+
+Please note that the model.comp project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
+
+----------------------------------------------------------------
+
 ## Exercise 1.1:
 To create this R package, the following steps were used:
 ```
