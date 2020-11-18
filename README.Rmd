@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# model.comp
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of model.comp is to compare the performance of some fitted models on the given data.
+(Note: currently, only supports returning the fitted values, and only supports a logistic regression model. This will be expanded on in the future.)
+
+## Installation
+
+You can install the released version of model.comp from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("model.comp")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("hantonita/model.comp")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(model.comp)
+(compare_models(data = gapminder::gapminder, eqn = "lifeExp ~ gdpPercap", models = c('logreg')))
+```
+
+## Exercise 1.1:
+To create this R package, the following steps were used:
+```
+library(devtools)
+usethis::create_package('~Documents/model.comp')
+``` 
+to make an R package
+
+```
+library(devtools)
+usethis::use_git()
+``` 
+to ensure that the project is using git. Then I created a repository on github with the same name, and used the shell opened from my R project to push the existing repository to github.
+
+```
+library(devtools)
+usethis::use_r('compare')
+```
+to create the `compare.R` file to hold my `compare` function.
+
+I then edited the `DESCRIPTION` file, adding a title and the author information, and using `usethis::use_mit_license()` to add a license to my package.
+
+Package dependencies were added to the `DESCRIPTION` file using `usethis::use_package(<package name>)`, and a vignette was created using `usethis::use_vignette()`.
+
+Documentation was finally updated using `devtools::document()`
+

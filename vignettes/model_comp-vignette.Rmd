@@ -1,0 +1,33 @@
+---
+title: "Getting started: model.comp "
+author: "Hanna Frank"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started: model.comp}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+The `model.comp` helps compare performance measures of models fitted to given data. To get started, load the package as such:
+
+```{r}
+library(model.comp)
+```
+
+Then call the `compare_models()` function, specifying your input `data`, the `models` you want to fit, given as a list or vector, the `outputs` you would like to compare, also given as a list or vector, and your `eqn` - the format of the models you would like to fit.
+
+Currently, the models supported are:  
+
+- `logreg`: logistic regression
+
+The supported outputs are: 
+
+- `fitted_values`: the values predicted using the fitted model for the given dataset.
+
+An example is given below for the `logreg` model, using the `gapminder` dataset as test data:
+
+```{r}
+logreg_output <- compare_models(data = gapminder::gapminder, eqn = "lifeExp ~ gdpPercap", models = c('logreg'))
+```
+
